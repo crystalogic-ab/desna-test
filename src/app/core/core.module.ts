@@ -1,7 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
@@ -17,7 +16,6 @@ import { AppEffects } from './store/effects/app.effects';
     CommonModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([AppEffects]),
-    StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ]
 })

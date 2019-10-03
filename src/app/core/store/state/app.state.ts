@@ -1,7 +1,4 @@
-import { RouterReducerState } from '@ngrx/router-store';
-
 export interface AppState {
-  router?: RouterReducerState;
   first: number;
   second: number;
 }
