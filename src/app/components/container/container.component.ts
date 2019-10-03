@@ -28,6 +28,7 @@ export class ContainerComponent implements OnInit, OnDestroy {
   }
 
   start() {
+    this.stop();
     this.subscription = timer(0, 1000).subscribe(res => {
       this.store.dispatch(new Change());
     });
