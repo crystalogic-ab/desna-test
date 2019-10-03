@@ -1,0 +1,28 @@
+p {
+  color: #fff;
+  font-weight: bold;
+}
+
+span {
+  border-width: 1px;
+  border-style: solid;
+  border-color: grey;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  color: grey;
+
+
+  &.valid {
+    border-color: blue;
+    color: blue;
+  }
+
+  &.invalid {
+    border-color: red;
+    color: red;
+  }
+}
+
+

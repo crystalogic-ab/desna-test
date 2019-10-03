@@ -1,0 +1,2 @@
+<p>First: <span [ngClass]="{'valid': (first$ | async) > 0, 'invalid': (first$ | async) < 0}">{{first$ | async}}</span></p>
+<p>Second: <span [ngClass]="{'valid': (second$ | async) > 0, 'invalid': (second$ | async) < 0}">{{second$ | async}}</span></p>
