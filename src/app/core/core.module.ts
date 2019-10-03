@@ -17,7 +17,7 @@ import { AppEffects } from './store/effects/app.effects';
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([AppEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-  ]
+  ],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
