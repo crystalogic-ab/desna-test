@@ -3,7 +3,7 @@ import { getInitialState } from '../state/app.state';
 import { EAppActions } from '../actions/app.actions';
 
 
-describe('FirstReducer', () => {
+describe('First Reducer', () => {
   describe('undefined action', () => {
     it('should return current state', () => {
       const initial = getInitialState().first;

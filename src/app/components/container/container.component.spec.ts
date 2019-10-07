@@ -1,11 +1,10 @@
-import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { ContainerComponent } from './container.component';
 import { ContentComponent } from '../content/content.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CoreModule } from '../../core/core.module';
 import { Change, Reset } from '../../core/store/actions/app.actions';
 import { TestScheduler } from 'rxjs/testing';
-import { timer } from 'rxjs';
 
 describe('ContainerComponent', () => {
   let component: ContainerComponent;
@@ -31,7 +30,7 @@ describe('ContainerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 
@@ -48,11 +47,10 @@ describe('ContainerComponent', () => {
         expect(spy).toEqual(expected);
       });
       component.start();
-      fixture.detectChanges();
       scheduler.schedule(() => {
         expect(spy).toHaveBeenCalledTimes(1);
         expect(spy).toHaveBeenCalledWith(expectedAction);
-      }, 999, null);
+      }, 600, null);
       scheduler.schedule(() => {
         expect(spy).toHaveBeenCalledTimes(2);
         expect(spy).toHaveBeenCalledWith(expectedAction);

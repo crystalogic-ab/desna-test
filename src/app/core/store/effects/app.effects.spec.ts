@@ -37,22 +37,24 @@ TestBed.configureTestingModule({
 });
 
 const effects = TestBed.get<AppEffects>(AppEffects);
+describe('Change Effect', () => {
+  it('should call increase once and decrease twice', () => {
+    actions$ = hot('a', {type: EAppActions.Change});
 
-it('should call increase once and decrease twice', () => {
-  actions$ = hot('a', {type: EAppActions.Change});
+    effects.change$.subscribe(action => {
+      expect(action).toEqual([
+        {
+          type: EAppActions.Increase,
+        },
+        {
+          type: EAppActions.Decrease,
+        },
+        {
+          type: EAppActions.Decrease,
+        }
+      ]);
+    });
 
-  effects.change$.subscribe(action => {
-    expect(action).toEqual([
-      {
-        type: EAppActions.Increase,
-      },
-      {
-        type: EAppActions.Decrease,
-      },
-      {
-        type: EAppActions.Decrease,
-      }
-    ]);
   });
-
 });
+

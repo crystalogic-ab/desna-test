@@ -3,7 +3,7 @@ import { EAppActions } from '../actions/app.actions';
 import { SecondReducer } from './second.reducers';
 
 
-describe('FirstReducer', () => {
+describe('Second Reducer', () => {
   describe('undefined action', () => {
     it('should return current state', () => {
       const initial = getInitialState().first;
