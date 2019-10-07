@@ -40,37 +40,39 @@ describe('ContainerComponent', () => {
       expect(component.subscription).toBeDefined();
     });
 
-    it('should call Change action every second', () => {
+    it('should call Change action every second', async () => {
       const expectedAction = new Change();
       const spy = spyOn(component['store'], 'dispatch');
       const scheduler = new TestScheduler((actual, expected) => {
         expect(spy).toEqual(expected);
       });
+
       component.start();
-      scheduler.schedule(() => {
+      await scheduler.schedule(() => {
         expect(spy).toHaveBeenCalledTimes(1);
         expect(spy).toHaveBeenCalledWith(expectedAction);
-      }, 600, null);
-      scheduler.schedule(() => {
+      }, 999, null);
+      await scheduler.schedule(() => {
         expect(spy).toHaveBeenCalledTimes(2);
         expect(spy).toHaveBeenCalledWith(expectedAction);
       }, 1000, null);
-      scheduler.schedule(() => {
+      await scheduler.schedule(() => {
         expect(spy).toHaveBeenCalledTimes(3);
         expect(spy).toHaveBeenCalledWith(expectedAction);
       }, 2000, null);
-      scheduler.schedule(() => {
+      await scheduler.schedule(() => {
         expect(spy).toHaveBeenCalledTimes(4);
         expect(spy).toHaveBeenCalledWith(expectedAction);
       }, 3000, null);
-      scheduler.schedule(() => {
+      await scheduler.schedule(() => {
         expect(spy).toHaveBeenCalledTimes(4);
         expect(spy).toHaveBeenCalledWith(expectedAction);
       }, 3500, null);
-      scheduler.schedule(() => {
+      await scheduler.schedule(() => {
         expect(spy).toHaveBeenCalledTimes(5);
         expect(spy).toHaveBeenCalledWith(expectedAction);
       }, 4000, null);
+
       scheduler.flush();
     });
   });
